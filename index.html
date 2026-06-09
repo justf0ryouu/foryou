@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A Few Pages About You — A personal digital journal crafted with care." />
+  <meta name="theme-color" content="#1A0D10" />
+  <meta property="og:title" content="A Few Pages About You" />
+  <meta property="og:description" content="A personal digital journal crafted with care." />
+  <meta property="og:type" content="website" />
+  <title>A Few Pages About You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <section id="intro-screen" class="scene">
+    <div class="intro-text-wrap">
+      <p class="intro-phrase" id="intro-phrase">Haloo temen, cinta, atau apapun itu <3 </p>
+      <p class="intro-phrase" id="intro-phrase">Thank youu udah mau luangin buat liat ini...</p>
+    </div>
+  </section>
+
+    
+  <section id="book-cover-scene" class="scene">
+    <div class="book-wrapper" id="book-wrapper">
+      <div class="book-3d" id="book-3d">
+        
+        <div class="book-face book-front" id="book-front">
+          <div class="book-spine-line"></div>
+          <div class="book-cover-content">
+            <div class="cover-ornament top"></div>
+            <div class="book-title-wrap">
+              <span class="cover-label"></span>
+              <h1 class="cover-title">Cerita Tentang Kamu, Aku atau Kita Mungkin</h1>
+              <div class="cover-divider"></div>
+              <p class="cover-subtitle" id="cover-cta">Click to Open... </p>
+            </div>
+            <div class="cover-ornament bottom"></div>
+          </div>
+          <div class="book-light-effect" id="book-light"></div>
+        </div>
+        
+        <div class="book-face book-spine">
+          <span class="spine-text">A Few Pages About You</span>
+        </div>
+        
+        <div class="book-face book-back"></div>
+      </div>
+    </div>
+    <div class="cover-hint" id="cover-hint">
+      <span class="hint-dot"></span>
+      <span></span>
+    </div>
+  </section>
+
+    <section id="book-open-scene" class="scene hidden">
+
+    
+    <div class="open-book-container" id="open-book">
+
+      
+      <div class="book-gutter"></div>
+
+      
+      <article class="book-page" id="page-1" data-page="1">
+        <div class="page-inner">
+          <div class="page-number">01</div>
+          <div class="page-chapter"></div>
+
+          <div class="page-1-photo-wrap">
+            <div class="photo-placeholder large" id="photo-cover">
+              <img src="assets/cover.jpg" alt="Cover Photo" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="photo-overlay-text"></div>
+            </div>
+          </div>
+          <div class="page-1-text">
+            <p class="typewriter-text" id="typewriter-line-1">Hi.</p>
+            <p class="typewriter-text delayed" id="typewriter-line-2">
+              Sebenernya aku gatau ya apa tujuannya aku buat ini <br/>
+              Mungkin buat nyampein sesuatu kali ya yang gabisa aku omomngin <br>
+              atau mungkin nyimpen hal tentang aku dan kamu disini.
+            </p>
+          </div>
+
+          <div class="page-decoration page-dec-bottom-right"></div>
+        </div>
+      </article>
+
+      
+      <article class="book-page" id="page-2" data-page="2">
+        <div class="page-inner">
+          <div class="page-number">02</div>
+          <div class="page-chapter">First Impression</div>
+
+          <div class="page-2-layout">
+            <div class="polaroid-wrap">
+              <div class="polaroid" id="polaroid-1">
+                <div class="polaroid-photo">
+                  <img src="assets/1.jpeg" alt="Memory 1" onerror="this.parentElement.classList.add('no-img')" />
+                  <div class="photo-overlay-text"></div>
+                </div>
+                <div class="polaroid-caption">— a moment</div>
+              </div>
+            </div>
+
+            <div class="page-2-story">
+              <h2 class="story-heading">First Impression</h2>
+              <p class="story-body reveal-text">
+                Pas pertama kali kita first meet itu aku inget kayaknya pas aku nganterin kamu ngecek hp kamu ya, sebelum itu kita makan di hotways kann.
+              </p>
+              <p class="story-body reveal-text">
+                Aku gatau ya niat awalku ke kamu sebenernya emang pure temenan karna disitu aku blm tau kamu siapa dan aku belum ngerti sepenuhnya tentang kamu yaa skrg aku jg belum tau sepenuhnya tentang kamu si cuma ada beberapa hal yang ngebuat apa ya bilangnya "fall in love?".
+              </p>
+              <p class="story-body reveal-text">
+                Di first meet itu juga kita nongkrong kan di cosan, disitu aku blm ada rasa suka atau apapun itu ke kamu tapi pas kamu ngejelasin tentang apa itu batu batuan dan apalah itu tentang jurusanmu, idk kenapa tbtb aku kayak ada perasaan yg entah gabisa dijelaskan la pokoknya.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      
+      <article class="book-page" id="page-3" data-page="3">
+        <div class="page-inner">
+          <div class="page-number">03</div>
+          <div class="page-chapter">Things I Like About You</div>
+
+          <p class="page-intro-text">Hal-hal kecil yang selalu aku perhatikan.</p>
+
+          <div class="like-cards-grid" id="like-cards-grid">
+            <div class="like-card" data-delay="0">
+              <div class="like-card-number">I.</div>
+              <div class="like-card-content">
+                <h3>Cara Kamu ngejelasin sesuatu</h3>
+                <p>Kamu pas ngejelasin sesuatu tu bener bener apa ya buat aku ngerti, entah itu cerita atau hal lain itu buat aku pengen aku dengerin kamu.</p>
+              </div>
+            </div>
+            <div class="like-card" data-delay="150">
+              <div class="like-card-number">II.</div>
+              <div class="like-card-content">
+                <h3>Cara kamu perhatiin hal kecil</h3>
+                <p>Pas kamu merhatiin hal hal kecil di sekitarmu, biasanya orang tuh ga sadar tapi kamu sendiri tuh sadar.</p>
+              </div>
+            </div>
+            <div class="like-card" data-delay="300">
+              <div class="like-card-number">III.</div>
+              <div class="like-card-content">
+                <h3>Energi yang kamu bawa</h3>
+                <p>Mungkin karena perasaanku ke kamu, soalnya kata orang kalo ketemu someone special tu bisa recharge energy.</p>
+              </div>
+            </div>
+            <div class="like-card" data-delay="450">
+              <div class="like-card-number">IV.</div>
+              <div class="like-card-content">
+                <h3>Cara kamu tetep jadi dirimu sendiri</h3>
+                <p>Aku suka kamu apa adanya, tanpa perlu kamu peduliin omongan orang lain, gaperlu jadi orang lain.</p>
+              </div>
+            </div>
+            <div class="like-card" data-delay="600">
+              <div class="like-card-number">V.</div>
+              <div class="like-card-content">
+                <h3>Sering Tidur Pas Ketemu HAHAHA</h3>
+                <p>Kamu bisa tidur padahal itu tempat lagi rame banget, setiap kamu tidur aku gamau ganggu, JANGAN LUPA ISTIRAHAT CUKUPPP.... TAKE CAREE OF URSELFFFF....</p>
+              </div>
+            </div>
+            <div class="like-card" data-delay="750">
+              <div class="like-card-number">VI.</div>
+              <div class="like-card-content">
+                <h3>Kamu saat cerita sesuatu</h3>
+                <p>Kamu tanpa sadar ngebuat aku tertarik buat ngedengerin ceritamu itu, sering sering ya cerita ke aku.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      
+      <article class="book-page" id="page-4" data-page="4">
+        <div class="page-inner">
+          <div class="page-number">04</div>
+          <div class="page-chapter">Memory Gallery</div>
+
+          <p class="page-intro-text">Beberapa momen yang selalu aku ingat.</p>
+
+          <div class="scrapbook-gallery" id="scrapbook-gallery">
+            <div class="scrapbook-item" style="--rot: -3deg; --x: 0%; --y: 0%;" data-parallax="0.02">
+              <div class="scrapbook-photo">
+                <img src="assets/2.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
+                <div class="photo-overlay-text">[ 2.jpeg ]</div>
+              </div>
+              <div class="scrapbook-tape tape-top"></div>
+              <p class="scrapbook-caption">suatu hari yang biasa</p>
+            </div>
+            <div class="scrapbook-item" style="--rot: 2.5deg; --x: 55%; --y: 5%;" data-parallax="0.025">
+              <div class="scrapbook-photo">
+                <img src="assets/3.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
+                <div class="photo-overlay-text">[ 3.jpeg ]</div>
+              </div>
+              <div class="scrapbook-tape tape-corner"></div>
+              <p class="scrapbook-caption">yang tidak terduga</p>
+            </div>
+            <div class="scrapbook-item" style="--rot: -1.5deg; --x: 15%; --y: 48%;" data-parallax="0.018">
+              <div class="scrapbook-photo">
+                <img src="assets/4.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
+                <div class="photo-overlay-text">[ 4.jpeg ]</div>
+              </div>
+              <div class="scrapbook-tape tape-top"></div>
+              <p class="scrapbook-caption">Ini Paling Favorit Lucu Cantik Semuanya yang baik baik </p>
+            </div>
+            <div class="scrapbook-item" style="--rot: 3.5deg; --x: 58%; --y: 50%;" data-parallax="0.03">
+              <div class="scrapbook-photo">
+                <img src="assets/5.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
+                <div class="photo-overlay-text">[ 5.jpeg ]</div>
+              </div>
+              <div class="scrapbook-tape tape-corner"></div>
+              <p class="scrapbook-caption">LOVEE U</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      
+      <article class="book-page" id="page-5" data-page="5">
+        <div class="page-inner letter-page-inner">
+          <div class="page-number">05</div>
+          <div class="page-chapter">A Letter</div>
+
+          <div class="letter-container">
+            <div class="letter-header">
+              <span class="letter-date">Suatu Hari...</span>
+            </div>
+
+            <div class="letter-body">
+              <p class="letter-salutation reveal-text">For Youu,</p>
+
+              <p class="letter-para reveal-text">
+                Duh mulainya darimana ya aku bingung, Kalo nginget lagi ke belakang aku suka ketawa sendiri karena lucu aja. Awalnya aku cuma niat temenan tapi tbtb ada perasaan yang muncul gabisa dijelasin pokoknya tbtb muncul aja, Semuanya dari seiring kita ngobrol kecil, dan ngobrol kecil itu skrg aku tunggu terus hehe.
+              </p>
+
+              <p class="letter-para reveal-text">
+                Dan entah sejak kapan aku nyaman sama kamu. Aku suka ngobrol sama kamu, aku suka hal kecil apapun itu asal tentangmu, aku paling suka kalo kamu jadi dirimu sendiri tanpa kamu harus jadi orang lain.
+              </p>
+
+              <p class="letter-para reveal-text">
+                Aku seneng banget punya kesempatan ketemu kamu dan kenal kamu. Kamu semangat terus ya jalanin hari-harimu yang mungkin berat dan aku minta maaf kalo aku pas harimu lagi berat aku gabisa ngapa-ngapain padahal aku pengen banget ngebuat harimu yg berat itu jadi ringan. 
+              </p>
+
+              <p class="letter-para reveal-text">
+                Boong banget kalo semisal aku ga pengen hubungan kita lebih dari temen, boong banget kalo aku gamau habisin hari-hariku sama kamu. Jujur aku gatau kedepannya kita bakal kayak gimana, apapun itu aku happy asalkan kamu happy. Aku seneng pernah kenal kamu, seneng bisa ketemu sama orang yang tanpa sadar ngebuat hariku jadi ada semangatnya.
+              </p>
+
+              <p class="letter-para reveal-text">
+                Aku suka kamu, kalo dikasih kesempatan si aku pengen kenal kamu lebih lama ya. HEHE... Love U More.
+              </p>
+
+              <p class="letter-closing reveal-text">
+                With Love,<br/>
+                <span class="letter-signature">Dari Aku yang Mencintaimu</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="page-decoration page-dec-corner"></div>
+        </div>
+      </article>
+
+      
+      <article class="book-page page-ending" id="page-6" data-page="6">
+        <div class="page-inner ending-inner">
+          <div class="ending-content">
+            <div class="ending-quote" id="ending-quote">
+              <p class="ending-line" id="ending-line-1">Aku Gatau kita bakal</p>
+              <p class="ending-line" id="ending-line-2">berakhir di mana dan gimana.</p>
+              <br/>
+              <p class="ending-line" id="ending-sline-3">Tapi aku seneng bgt pernah</p>
+              <p class="ending-line" id="ending-line-4">jadi bagian dari hari-harimu.</p>
+            </div>
+
+            <div class="ending-thanks" id="ending-thanks">
+              <div class="thanks-divider"></div>
+              <p class="thanks-text">Makasih ya udah mau baca hehe</p>
+              <p class="thanks-sub">--- JEKIII ---</p>
+            </div>
+
+            <button class="close-book-btn" id="close-book-btn">
+              <span>Close the Book</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+            <div class="page-flip-overlay" id="page-flip-overlay">
+        <div class="flip-page flip-page-1"></div>
+        <div class="flip-page flip-page-2"></div>
+      </div>
+
+    </div>
+
+    
+    <button class="global-close-btn" id="global-close-btn" aria-label="Close book">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 19l-7-7 7-7"/></svg>
+      <span>Back to Cover</span>
+    </button>
+
+    
+    <div class="nav-arrows" id="nav-arrows">
+      <button class="nav-btn nav-prev" id="nav-prev" aria-label="Previous page" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15,18 9,12 15,6"/></svg>
+      </button>
+      <div class="page-indicator" id="page-indicator">
+        <span id="current-page-num">1</span>
+        <span class="page-sep">/</span>
+        <span id="total-page-num">6</span>
+      </div>
+      <button class="nav-btn nav-next" id="nav-next" aria-label="Next page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,18 15,12 9,6"/></svg>
+      </button>
+    </div>
+
+  </section>
+
+    <div class="music-player" id="music-player">
+    <audio id="bg-audio" src="assets/music.mp3" loop></audio>
+    <button class="music-toggle" id="music-toggle" aria-label="Toggle music">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+      <svg class="icon-pause hidden" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    </button>
+    <div class="music-info">
+      <span class="music-label">Background Music</span>
+      <div class="music-bars" id="music-bars">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
