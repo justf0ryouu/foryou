@@ -1169,7 +1169,7 @@ body {
 
 .music-player {
   position: fixed;
-  bottom: clamp(16px, 3vh, 28px);
+  top: clamp(15px, 3vh, 28px);
   right: clamp(16px, 3vw, 28px);
   z-index: 100;
   display: flex;
