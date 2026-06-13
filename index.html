@@ -16,86 +16,107 @@
 </head>
 <body>
 
-    <canvas id="particle-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
 
-    <section id="intro-screen" class="scene">
+  <!-- Intro Screen -->
+  <section id="intro-screen" class="scene">
     <div class="intro-text-wrap">
-      <p class="intro-phrase" id="intro-phrase">Haloo temen, cinta, atau apapun itu <3 </p>
-      <p class="intro-phrase" id="intro-phrase">Thank youu udah mau luangin waktu kamu buat liat ini...</p>
+      <p class="intro-phrase" id="intro-phrase-1">Haloo temen, cinta, atau apapun itu &lt;3 </p>
+      <p class="intro-phrase" id="intro-phrase-2">Thank youu udah mau luangin waktu kamu buat liat ini...</p>
     </div>
   </section>
 
-    
+  <!-- Book Cover Scene -->
   <section id="book-cover-scene" class="scene">
     <div class="book-wrapper" id="book-wrapper">
       <div class="book-3d" id="book-3d">
-        
+
         <div class="book-face book-front" id="book-front">
           <div class="book-spine-line"></div>
           <div class="book-cover-content">
-            <div class="cover-ornament top"></div>
-            <div class="book-title-wrap">
-              <span class="cover-label"></span>
-              <h1 class="cover-title">Cerita Tentang Kamu, Aku atau Kita Mungkin</h1>
-              <div class="cover-divider"></div>
-              <p class="cover-subtitle" id="cover-cta">Dibaca yaa cantii , klik aja buat bukanya  </p>
+            <div class="cover-ornament top">
+              <div class="cover-ornament-line"></div>
+              <div class="cover-ornament-diamond"></div>
+              <div class="cover-ornament-line"></div>
             </div>
-            <div class="cover-ornament bottom"></div>
+            <div class="book-title-wrap">
+              <span class="cover-label">Special For U </span>
+              <h1 class="cover-title">Cerita Tentang Kamu, Aku atau Kita Mungkin</h1>
+              <div class="cover-divider">
+                <span class="cover-divider-gem">◆</span>
+              </div>
+              <p class="cover-subtitle" id="cover-cta">Dibaca yaa cantii , klik aja buat bukanya </p>
+            </div>
+            <div class="cover-ornament bottom">
+              <div class="cover-ornament-line"></div>
+              <div class="cover-ornament-diamond"></div>
+              <div class="cover-ornament-line"></div>
+            </div>
           </div>
           <div class="book-light-effect" id="book-light"></div>
+          <div class="book-emboss-overlay"></div>
         </div>
-        
+
+        <!-- Bookmark -->
+        <div class="book-bookmark" id="book-bookmark">
+          <div class="bookmark-ribbon"></div>
+          <div class="bookmark-tail"></div>
+        </div>
+
         <div class="book-face book-spine">
-          <span class="spine-text">A Few Pages About You</span>
+          <span class="spine-text">About Us</span>
         </div>
-        
+
         <div class="book-face book-back"></div>
       </div>
     </div>
     <div class="cover-hint" id="cover-hint">
       <span class="hint-dot"></span>
-      <span></span>
+      <span>Klik untuk membuka</span>
     </div>
   </section>
 
-    <section id="book-open-scene" class="scene hidden">
+  <!-- Book Open Scene -->
+  <section id="book-open-scene" class="scene hidden">
 
-    
     <div class="open-book-container" id="open-book">
 
-      
       <div class="book-gutter"></div>
+      <div class="book-page-shadow-left"></div>
+      <div class="book-page-shadow-right"></div>
 
-      
+      <!-- Page 1 -->
       <article class="book-page" id="page-1" data-page="1">
         <div class="page-inner">
           <div class="page-number">01</div>
-          <div class="page-chapter"></div>
+          <div class="page-chapter" id="chapter-1"></div>
 
           <div class="page-1-photo-wrap">
             <div class="photo-placeholder large" id="photo-cover">
               <img src="assets/cover.jpg" alt="Cover Photo" onerror="this.parentElement.classList.add('no-img')" />
               <div class="photo-overlay-text"></div>
+              <div class="photo-shine"></div>
             </div>
           </div>
           <div class="page-1-text">
-            <p class="typewriter-text" id="typewriter-line-1">Hi.</p>
+            <p class="typewriter-text" id="typewriter-line-1">Hi.Firaa</p>
             <p class="typewriter-text delayed" id="typewriter-line-2">
-              Sebenernya aku gatau ya apa tujuannya aku buat ini <br/>
-              Mungkin buat nyampein sesuatu kali ya yang gabisa aku omomngin <br>
-              atau mungkin nyimpen hal tentang aku dan kamu disini.
+              Sebenernya aku gatau kenapa aku bikin ini<br/>
+              Mungkin ada beberapa hal yang gabisa aku sampein secara langsung kali ya <br>
+              Jadi aku nyimpen itu disini...
             </p>
           </div>
 
           <div class="page-decoration page-dec-bottom-right"></div>
+          <div class="page-corner-ornament top-left"></div>
         </div>
       </article>
 
-      
+      <!-- Page 2 -->
       <article class="book-page" id="page-2" data-page="2">
         <div class="page-inner">
           <div class="page-number">02</div>
-          <div class="page-chapter">First Impression</div>
+          <div class="page-chapter" id="chapter-2">First Impression</div>
 
           <div class="page-2-layout">
             <div class="polaroid-wrap">
@@ -103,34 +124,35 @@
                 <div class="polaroid-photo">
                   <img src="assets/1.jpeg" alt="Memory 1" onerror="this.parentElement.classList.add('no-img')" />
                   <div class="photo-overlay-text"></div>
+                  <div class="photo-shine"></div>
                 </div>
                 <div class="polaroid-caption">— a moment</div>
               </div>
             </div>
 
             <div class="page-2-story">
-              <h2 class="story-heading">First Impression</h2>
+              <h2 class="story-heading reveal-text">First Impression</h2>
               <p class="story-body reveal-text">
-                Pas pertama kali kita first meet itu aku inget kayaknya pas aku nganterin kamu ngecek hp kamu ya, sebelum itu kita makan di hotways kann.
+                Pas pertama kali kita ketemu itu aku inget kayaknya pas aku nemenin kamu ngecek hp yaa, sebelum itu kita makan di hotways kann.
               </p>
               <p class="story-body reveal-text">
-                Aku gatau ya niat awalku ke kamu sebenernya emang pure temenan karna disitu aku blm tau kamu siapa dan aku belum ngerti sepenuhnya tentang kamu yaa skrg aku jg belum tau sepenuhnya tentang kamu si cuma ada beberapa hal yang ngebuat apa ya bilangnya "fall in love?".
+                Aku gatau ya niat awalku ke kamu sebenernya emang pure temenan karna disitu aku blm tau kamu siapa dan aku belum ngerti sepenuhnya tentang kamu yaa skrg aku jg belum tau sepenuhnya tentang kamu si 
               </p>
               <p class="story-body reveal-text">
-                Di first meet itu juga kita nongkrong kan di cosan, disitu aku blm ada rasa suka atau apapun itu ke kamu tapi pas kamu ngejelasin tentang apa itu batu batuan dan apalah itu tentang jurusanmu, idk kenapa tbtb aku kayak ada perasaan yg entah gabisa dijelaskan la pokoknya.
+                Tapi gatau kenapa, waktu kita ngobrol dan denger kamu ngejelasin tentang dirimu dan tentang berbagai hal lainnya kayak ada rasa apa ya, excited?fall in Love?.. aku gabisa ngedeskripsiin nya pas itu
               </p>
             </div>
           </div>
         </div>
       </article>
 
-      
+      <!-- Page 3 -->
       <article class="book-page" id="page-3" data-page="3">
         <div class="page-inner">
           <div class="page-number">03</div>
-          <div class="page-chapter">Things I Like About You</div>
+          <div class="page-chapter" id="chapter-3">Things I Like About You</div>
 
-          <p class="page-intro-text">Hal-hal kecil yang selalu aku perhatikan.</p>
+          <p class="page-intro-text reveal-text">Hal-hal kecil yang selalu aku perhatikan.</p>
 
           <div class="like-cards-grid" id="like-cards-grid">
             <div class="like-card" data-delay="0">
@@ -164,7 +186,7 @@
             <div class="like-card" data-delay="600">
               <div class="like-card-number">V.</div>
               <div class="like-card-content">
-                <h3>Sering Tidur Pas Ketemu HAHAHA</h3>
+                <h3>Yang Sering Tidur Pas Ketemu HAHAHA</h3>
                 <p>Kamu bisa tidur padahal itu tempat lagi rame banget, setiap kamu tidur aku gamau ganggu, JANGAN LUPA ISTIRAHAT CUKUPPP.... TAKE CAREE OF URSELFFFF....</p>
               </div>
             </div>
@@ -179,16 +201,16 @@
         </div>
       </article>
 
-      
+      <!-- Page 4 -->
       <article class="book-page" id="page-4" data-page="4">
         <div class="page-inner">
           <div class="page-number">04</div>
-          <div class="page-chapter">Memory Gallery</div>
+          <div class="page-chapter" id="chapter-4">Memory Gallery</div>
 
           <p class="page-intro-text">Hal tentang kita yang aku suka, selagi ada kamu aku suka terus ... </p>
 
           <div class="scrapbook-gallery" id="scrapbook-gallery">
-            <div class="scrapbook-item" style="--rot: -3deg; --x: 0%; --y: 0%;" data-parallax="0.02">
+            <div class="scrapbook-item" style="--rot: -3deg; --x: 0%; --y: 0%;" data-parallax="0.02" data-caption="COSANN ^-^">
               <div class="scrapbook-photo">
                 <img src="assets/2.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
                 <div class="photo-overlay-text">[ 2.jpeg ]</div>
@@ -196,7 +218,7 @@
               <div class="scrapbook-tape tape-top"></div>
               <p class="scrapbook-caption">COSANN ^-^</p>
             </div>
-            <div class="scrapbook-item" style="--rot: 2.5deg; --x: 55%; --y: 5%;" data-parallax="0.025">
+            <div class="scrapbook-item" style="--rot: 2.5deg; --x: 55%; --y: 5%;" data-parallax="0.025" data-caption="LUCUUKK ^-^">
               <div class="scrapbook-photo">
                 <img src="assets/3.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
                 <div class="photo-overlay-text">[ 3.jpeg ]</div>
@@ -204,7 +226,7 @@
               <div class="scrapbook-tape tape-corner"></div>
               <p class="scrapbook-caption">LUCUUKK ^-^</p>
             </div>
-            <div class="scrapbook-item" style="--rot: -1.5deg; --x: 15%; --y: 48%;" data-parallax="0.018">
+            <div class="scrapbook-item favorite-memory" style="--rot: -1.5deg; --x: 15%; --y: 48%;" data-parallax="0.018" data-caption="Ini Paling Favorit Lucu Cantik Semuanya yang baik baik">
               <div class="scrapbook-photo">
                 <img src="assets/4.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
                 <div class="photo-overlay-text">[ 4.jpeg ]</div>
@@ -212,7 +234,7 @@
               <div class="scrapbook-tape tape-top"></div>
               <p class="scrapbook-caption">Ini Paling Favorit Lucu Cantik Semuanya yang baik baik </p>
             </div>
-            <div class="scrapbook-item" style="--rot: 3.5deg; --x: 58%; --y: 50%;" data-parallax="0.03">
+            <div class="scrapbook-item" style="--rot: 3.5deg; --x: 58%; --y: 50%;" data-parallax="0.03" data-caption="LOVEE U">
               <div class="scrapbook-photo">
                 <img src="assets/5.jpeg" alt="Memory" onerror="this.parentElement.classList.add('no-img')" />
                 <div class="photo-overlay-text">[ 5.jpeg ]</div>
@@ -224,11 +246,11 @@
         </div>
       </article>
 
-      
+      <!-- Page 5 -->
       <article class="book-page" id="page-5" data-page="5">
         <div class="page-inner letter-page-inner">
           <div class="page-number">05</div>
-          <div class="page-chapter">A Letter</div>
+          <div class="page-chapter" id="chapter-5">A Letter</div>
 
           <div class="letter-container">
             <div class="letter-header">
@@ -239,7 +261,7 @@
               <p class="letter-salutation reveal-text">For Youu,</p>
 
               <p class="letter-para reveal-text">
-                Duh mulainya darimana ya aku bingung, Kalo nginget lagi ke belakang aku suka ketawa sendiri karena lucu aja. Awalnya aku cuma niat temenan tapi tbtb ada perasaan yang muncul gabisa dijelasin pokoknya tbtb muncul aja, Semuanya dari seiring kita ngobrol kecil, dan ngobrol kecil itu skrg aku tunggu terus hehe.
+                Duh mulainya darimana ya aku bingung, Kalo nginget lagi ke belakang aku suka ketawa sendiri karena lucu aja. Awalnya aku cuma niat temenan tapi tbtb ada perasaan yang muncul gabisa dijelasin pokoknya tbtb muncul aja,  , dan ngobrol kecil itu skrg aku tunggu terus hehe.
               </p>
 
               <p class="letter-para reveal-text">
@@ -247,11 +269,11 @@
               </p>
 
               <p class="letter-para reveal-text">
-                Aku seneng banget punya kesempatan ketemu kamu dan kenal kamu. Kamu semangat terus ya jalanin hari-harimu yang mungkin berat dan aku minta maaf kalo aku pas harimu lagi berat aku gabisa ngapa-ngapain padahal aku pengen banget ngebuat harimu yg berat itu jadi ringan. 
+                Aku seneng banget punya kesempatan ketemu kamu dan kenal kamu. Kamu semangat terus ya jalanin hari-harimu yang mungkin berat dan aku minta maaf kalo aku pas harimu lagi berat aku gabisa ngapa-ngapain padahal aku pengen banget ngebuat harimu yg berat itu jadi ringan.
               </p>
 
               <p class="letter-para reveal-text">
-                Boong banget kalo semisal aku ga pengen hubungan kita lebih dari temen, boong banget kalo aku gamau habisin hari-hariku sama kamu. Jujur aku gatau kedepannya kita bakal kayak gimana, apapun itu aku happy asalkan kamu happy. Aku seneng pernah kenal kamu, seneng bisa ketemu sama orang yang tanpa sadar ngebuat hariku jadi ada semangatnya.
+                Boong banget kalo semisal aku ga pengen hubungan kita lebih dari temen, boong banget kalo aku gamau habisin hari-hariku sama kamu. Jujur aku gatau kedepannya kita bakal kayak gimana, apapun itu aku cuma pengen kamu happy dengan ataupun tanpa aku. Aku seneng pernah kenal kamu, seneng bisa ketemu sama orang yang tanpa sadar ngebuat hariku jadi ada semangatnya.
               </p>
 
               <p class="letter-para reveal-text">
@@ -259,9 +281,9 @@
               </p>
 
               <p class="letter-para reveal-text">
-                Thank You for everything and i'm sorry for everything, hidup dengan baik dan bahagia ya, temuin bahagiamu (aku harap aku bagian dari bahagiamu hehe),sekalipun nanti takdir emang ga berpihak ke "kita" aku harap kamu selalu bahagia di setiap prosesmu yang berat, aku ga nyesel pernah nyimpen perasaan ke kamu, kalopun emg kita ga sama-sama nantinya, kamu harus tau kalo aku sedalam itu jatuh ke kamu dari yang kamu tau, kalopun emang kita gabisa bareng,aku gabakal ganggu kamu...
+                Thank You for everything and i'm sorry for everything, hidup dengan baik dan bahagia ya, temuin bahagiamu (aku harap aku bagian dari bahagiamu hehe),sekalipun nanti takdir emang ga berpihak ke "kita" aku harap kamu selalu bahagia di setiap prosesmu yang berat, aku ga nyesel pernah nyimpen perasaan ke kamu, kalopun emg kita ga sama-sama nantinya, kamu harus tau kalo aku sedalam itu jatuh ke kamu dari yang kamu tau, Apapun yang terjadi nantinya, aku selalu ngedoain km yg terbaik
               </p>
-              <p class =" letter-para reveal-text"> Kalo kata tiktok si "I really like you, but i will never force u to feel the same for me, Even if my feeling are never returned. I'm still grateful because what i feel for u is real and sincere."</p>
+              <p class="letter-para reveal-text"> Kalo kata tiktok si "I really like you, but i will never force u to feel the same for me, Even if my feeling are never returned. I'm still grateful because what i feel for u is real and sincere."</p>
               <p class="letter-closing reveal-text">
                 With Love,<br/>
                 <span class="letter-signature">Dari Aku yang Mencintaimu</span>
@@ -273,15 +295,16 @@
         </div>
       </article>
 
-      
+      <!-- Page 6 — Ending -->
       <article class="book-page page-ending" id="page-6" data-page="6">
+        <canvas class="ending-stars-canvas" id="ending-stars-canvas"></canvas>
         <div class="page-inner ending-inner">
           <div class="ending-content">
             <div class="ending-quote" id="ending-quote">
               <p class="ending-line" id="ending-line-1">Aku Gatau kita bakal</p>
               <p class="ending-line" id="ending-line-2">berakhir di mana dan gimana.</p>
               <br/>
-              <p class="ending-line" id="ending-sline-3">Tapi aku seneng bgt pernah</p>
+              <p class="ending-line" id="ending-line-3">Tapi aku seneng bgt pernah</p>
               <p class="ending-line" id="ending-line-4">jadi bagian dari hari-harimu.</p>
             </div>
 
@@ -291,6 +314,11 @@
               <p class="thanks-sub">--- JEKIII ---</p>
             </div>
 
+            <button class="one-last-thing-btn" id="one-last-thing-btn" aria-label="One Last Thing">
+              <span class="btn-shimmer"></span>
+              <span>One Last Thing...</span>
+            </button>
+
             <button class="close-book-btn" id="close-book-btn">
               <span>Close the Book</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -298,20 +326,19 @@
           </div>
         </div>
       </article>
-            <div class="page-flip-overlay" id="page-flip-overlay">
+
+      <div class="page-flip-overlay" id="page-flip-overlay">
         <div class="flip-page flip-page-1"></div>
         <div class="flip-page flip-page-2"></div>
       </div>
 
     </div>
 
-    
     <button class="global-close-btn" id="global-close-btn" aria-label="Close book">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 19l-7-7 7-7"/></svg>
       <span>Back to Cover</span>
     </button>
 
-    
     <div class="nav-arrows" id="nav-arrows">
       <button class="nav-btn nav-prev" id="nav-prev" aria-label="Previous page" disabled>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15,18 9,12 15,6"/></svg>
@@ -328,7 +355,44 @@
 
   </section>
 
-    <div class="music-player" id="music-player">
+  <!-- Secret Message Overlay -->
+  <div class="secret-overlay" id="secret-overlay" aria-hidden="true">
+    <div class="secret-modal" id="secret-modal">
+      <button class="secret-close" id="secret-close" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="secret-ornament top"></div>
+      <p class="secret-label">✦ One Last Thing ✦</p>
+      <div class="secret-body">
+        <p class="secret-line" id="s-line-1">Thank you</p>
+        <p class="secret-line" id="s-line-2">for being part</p>
+        <p class="secret-line" id="s-line-3">of my story.</p>
+        <br/>
+        <p class="secret-line" id="s-line-4">Honestly,</p>
+        <p class="secret-line" id="s-line-5">I hope u you're in the next chapters too...</p>
+        <br/>
+        <p class="secret-line secret-ps" id="s-line-6">-someone who's glad to have met you🤍</p>
+      </div>
+      <div class="secret-ornament bottom"></div>
+    </div>
+  </div>
+
+  <!-- Photo Viewer -->
+  <div class="photo-viewer" id="photo-viewer" aria-hidden="true">
+    <div class="photo-viewer-backdrop" id="photo-viewer-backdrop"></div>
+    <div class="photo-viewer-content">
+      <button class="photo-viewer-close" id="photo-viewer-close" aria-label="Close photo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="photo-viewer-frame">
+        <img class="photo-viewer-img" id="photo-viewer-img" src="" alt="" />
+      </div>
+      <p class="photo-viewer-caption" id="photo-viewer-caption"></p>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player" id="music-player">
     <audio id="bg-audio" src="assets/music.mp3" loop></audio>
     <button class="music-toggle" id="music-toggle" aria-label="Toggle music">
       <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
@@ -345,4 +409,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
