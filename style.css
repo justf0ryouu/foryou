@@ -53,6 +53,39 @@ body {
   position: relative;
 }
 
+/* Vintage Film Grain */
+body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+/* Audio Reactive Styles */
+body.music-active .book-wrapper::before {
+  animation: auraGlowBeat 2s ease-in-out infinite;
+}
+@keyframes auraGlowBeat {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.02); }
+  15% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.08); }
+  30% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.04); }
+  45% { opacity: 1.0; transform: translate(-50%, -50%) scale(1.12); }
+}
+
+body.music-active .book-bookmark {
+  animation: bookmarkBeat 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+@keyframes bookmarkBeat {
+  0%, 100% { transform: rotate(-1deg) translateY(0); }
+  20% { transform: rotate(1deg) translateY(2px); }
+  40% { transform: rotate(-2deg) translateY(-1px); }
+  60% { transform: rotate(1.5deg) translateY(1px); }
+}
+
 /* =========================================================
    PARTICLE CANVAS
    ========================================================= */
@@ -670,6 +703,16 @@ body {
   padding: 0;
 }
 
+/* Vignette Overlay */
+#book-open-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.4) 120%);
+  z-index: 100;
+}
+
 .open-book-container {
   position: relative;
   width: min(980px, 96vw);
@@ -743,10 +786,10 @@ body {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 10px;
+  width: 14px;
   background: linear-gradient(to right,
-    rgba(0,0,0,0.35),
-    rgba(0,0,0,0.1),
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.15),
     transparent
   );
   z-index: 7;
@@ -765,7 +808,8 @@ body {
   transition: opacity 0.6s var(--transition-smooth);
   overflow-y: auto;
   overflow-x: hidden;
-  /* Subtle paper texture */
+  /* Subtle paper texture and edge */
+  border-right: 1px solid rgba(0,0,0,0.06);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
     linear-gradient(180deg,
@@ -795,6 +839,12 @@ body {
   opacity: 1;
   pointer-events: all;
   z-index: 2;
+  animation: pageBreathe 8s ease-in-out infinite;
+}
+
+@keyframes pageBreathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.5px); }
 }
 
 .book-page::-webkit-scrollbar {
@@ -996,22 +1046,24 @@ body {
   background: linear-gradient(
     115deg,
     transparent 30%,
-    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.15) 50%,
     transparent 70%
   );
   transform: translateX(-100%);
   pointer-events: none;
   z-index: 2;
-  transition: none;
+  animation: occasionalShine 7s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@keyframes occasionalShine {
+  0%, 75% { transform: translateX(-100%); }
+  90%, 100% { transform: translateX(100%); }
 }
 
 .photo-placeholder:hover .photo-shine {
-  animation: shineSweep 0.7s ease forwards;
-}
-
-@keyframes shineSweep {
-  from { transform: translateX(-100%); }
-  to   { transform: translateX(100%); }
+  animation: none;
+  transform: translateX(100%);
+  transition: transform 0.6s ease;
 }
 
 .page-1-text {
@@ -1152,7 +1204,7 @@ body {
   font-family: var(--font-serif);
   font-size: clamp(0.88rem, 1.7vw, 1.05rem);
   font-weight: 400;
-  line-height: 1.95;
+  line-height: 1.75;
   color: var(--text-dark);
   margin-bottom: clamp(12px, 2vw, 20px);
 }
@@ -1399,7 +1451,7 @@ body {
   font-family: var(--font-serif);
   font-size: clamp(0.92rem, 1.7vw, 1.08rem);
   font-weight: 400;
-  line-height: 2.05;
+  line-height: 1.75;
   color: var(--text-dark);
   text-indent: 2em;
 }

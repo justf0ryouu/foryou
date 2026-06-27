@@ -545,7 +545,7 @@ function initScrapbookParallax() {
     items.forEach((item, idx) => {
       const factor = parseFloat(item.dataset.parallax || 0.02);
       const rot    = rotations[idx];
-      item.style.transform = `rotate(${rot}deg) translate(${dx * factor}px, ${dy * factor}px)`;
+      item.style.transform = `rotate(${rot}deg) translate(${dx * factor}px, ${dy * factor}px) scale(1.03)`;
     });
   }, { signal });
 
@@ -618,13 +618,13 @@ function triggerEnding() {
   const closeBtn = $('close-book-btn');
   const oltBtn   = $('one-last-thing-btn');
 
-  /* Animate lines one by one */
+  /* Animate lines one by one (faster sequence, no initial delay) */
   lines.forEach((line, i) => {
-    const tid = setTimeout(() => line.classList.add('visible'), 600 + i * 700);
+    const tid = setTimeout(() => line.classList.add('visible'), i * 400);
     addTimer(tid);
   });
 
-  const afterLines = 600 + lines.length * 700 + 900;
+  const afterLines = lines.length * 400 + 600;
 
   const tid1 = setTimeout(() => {
     if (thanks)   thanks.classList.add('visible');
@@ -907,6 +907,7 @@ function toggleMusic() {
     DOM.iconPlay.classList.remove('hidden');
     DOM.iconPause.classList.add('hidden');
     DOM.musicBars.classList.remove('playing');
+    document.body.classList.remove('music-active');
     state.musicPlaying = false;
   } else {
     const promise = audio.play();
@@ -915,6 +916,7 @@ function toggleMusic() {
         DOM.iconPlay.classList.add('hidden');
         DOM.iconPause.classList.remove('hidden');
         DOM.musicBars.classList.add('playing');
+        document.body.classList.add('music-active');
         state.musicPlaying = true;
       }).catch((err) => {
         console.warn('Audio play blocked:', err);
